@@ -12,12 +12,12 @@ public class Article {
     private BigInteger id;
     private String title;
     private String content;
-    private Date lastModifier;
+//    private Date lastModifier;
 
-    public Article(String title, String content, Date lastModifier) {
+    public Article(String title, String content) {
         this.title = title;
         this.content = content;
-        this.lastModifier = lastModifier;
+//        this.lastModifier = lastModifier;
     }
 
     public String getTitle() {
@@ -35,12 +35,13 @@ public class Article {
     public void setContent(String content) {
         this.content = content;
     }
-
-    public Date getLastModifier() {
-        return lastModifier;
-    }
-
-    public void setLastModifier(Date lastModifier) {
-        this.lastModifier = lastModifier;
-    }
+//
+//    public Date getLastModifier() {
+//        return lastModifier;
+//    }
+//
+//    public void setLastModifier(Date lastModifier) {
+//        this.lastModifier = lastModifier;
+//    }
 }
+
