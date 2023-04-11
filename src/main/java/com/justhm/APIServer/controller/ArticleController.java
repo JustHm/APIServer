@@ -5,7 +5,6 @@ import com.justhm.APIServer.repository.ArticleRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
-import java.math.BigInteger;
 import java.util.List;
 import java.util.Optional;
 
@@ -26,15 +25,19 @@ public class ArticleController {
     @GetMapping("/articles")
     public List<Article> articleList(@RequestParam int page, @RequestParam int num) {
         List<Article> list = articleRepository.findAll();
+//        if (list.isEmpty()) {
+//            return null;
+//        }
         return list;
     }
 
-    @GetMapping("/article")
-    public Optional<Article> getArticle(@RequestParam BigInteger id) {
-        return articleRepository.findById(id);
+    @GetMapping("/article/{id}")
+    public Optional<Article> getArticle(@PathVariable("id") String id) {
+        Optional<Article> article = articleRepository.findById(id);
+        return article;
     }
     @DeleteMapping("/article/del")
-    public Boolean deleteArticle(@RequestParam BigInteger id) {
+    public Boolean deleteArticle(@RequestParam String id) {
         articleRepository.deleteById(id);
         return true;
     }

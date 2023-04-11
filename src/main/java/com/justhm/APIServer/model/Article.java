@@ -1,15 +1,17 @@
 package com.justhm.APIServer.model;
 
+import lombok.Getter;
+import lombok.Setter;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
-import java.math.BigInteger;
 import java.util.Date;
 
 @Document(collection = "article")
+@Getter
 public class Article {
     @Id
-    private BigInteger id;
+    private String id;
     private String title;
     private String content;
 //    private Date lastModifier;
@@ -17,31 +19,7 @@ public class Article {
     public Article(String title, String content) {
         this.title = title;
         this.content = content;
-//        this.lastModifier = lastModifier;
+//        this.lastModifier = lastModifier; , Date lastModifier
     }
-
-    public String getTitle() {
-        return title;
-    }
-
-    public void setTitle(String title) {
-        this.title = title;
-    }
-
-    public String getContent() {
-        return content;
-    }
-
-    public void setContent(String content) {
-        this.content = content;
-    }
-//
-//    public Date getLastModifier() {
-//        return lastModifier;
-//    }
-//
-//    public void setLastModifier(Date lastModifier) {
-//        this.lastModifier = lastModifier;
-//    }
 }
 
