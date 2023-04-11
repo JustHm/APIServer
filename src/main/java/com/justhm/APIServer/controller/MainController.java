@@ -25,10 +25,9 @@ public class MainController {
     public String signUp(@RequestBody LoginRequest loginRequest) {
         if (userRepository.findByUsername(loginRequest.getUsername()).isPresent()) {
             return "userName is exist..";
-        } else {
-            userRepository.save(loginRequest);
-            return "complete";
         }
+        userRepository.save(loginRequest);
+        return "complete";
     }
     @PostMapping("/signin")
     public String signIn(@RequestBody LoginRequest loginRequest) {
