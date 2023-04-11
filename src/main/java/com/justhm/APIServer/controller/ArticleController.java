@@ -8,7 +8,6 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 import java.util.Optional;
 
-//@Controller
 @RestController
 @RequestMapping("api")
 public class ArticleController {
@@ -25,9 +24,6 @@ public class ArticleController {
     @GetMapping("/articles")
     public List<Article> articleList(@RequestParam int page, @RequestParam int num) {
         List<Article> list = articleRepository.findAll();
-//        if (list.isEmpty()) {
-//            return null;
-//        }
         return list;
     }
 
